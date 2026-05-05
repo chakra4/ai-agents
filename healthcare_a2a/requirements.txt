@@ -1,0 +1,6 @@
+google-adk
+mcp
+fastapi
+uvicorn
+a2a-sdk
+fastmcp
