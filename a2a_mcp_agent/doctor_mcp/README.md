@@ -36,7 +36,7 @@ pip install -r requirements.txt
 python server.py
 ```
 
-*Note: The server is now configured to run using **Streamable HTTP** transport on **port 8001**. You can access the MCP endpoint at `http://localhost:8001/mcp`.*
+*Note: The server is now configured to run using **Streamable HTTP** transport on **port 8081**. You can access the MCP endpoint at `http://localhost:8081/mcp`.*
 
 ---
 
@@ -50,9 +50,9 @@ docker build -t doctor-mcp-server .
 ```
 
 **Step 2: Run the Docker container**
-Since the server runs on port 8001, you must map the container's port to your host machine:
+Since the server runs on port 8081, you must map the container's port to your host machine:
 ```bash
-docker run -p 8001:8001 doctor-mcp-server
+docker run -p 8081:8081 doctor-mcp-server
 ```
 
 ---
@@ -66,7 +66,7 @@ To use this server with Claude Desktop, you need to add it to your Claude Deskto
 {
   "mcpServers": {
     "doctor-search": {
-      "url": "http://localhost:8001/mcp"
+      "url": "http://localhost:8081/mcp"
     }
   }
 }

@@ -1,0 +1,10 @@
+google-adk
+langgraph
+langchain
+langchain-google-genai
+langchain-core
+yfinance
+fastapi
+uvicorn
+a2a-sdk
+langchain_community

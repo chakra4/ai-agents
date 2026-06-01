@@ -9,7 +9,7 @@ import uvicorn
 async def create_agent():
     # 1. Configure the connection to the remote MCP Server
     # The server URL is configurable via environment variable
-    mcp_url = os.getenv("MCP_SERVER_URL", "http://localhost:8081/mcp")
+    mcp_url = os.getenv("MCP_SERVER_URL", "http://0.0.0.0:8081/mcp")
     print(f"Connecting to MCP Server at: {mcp_url}")
     
     connection_params = StreamableHTTPConnectionParams(
@@ -25,7 +25,7 @@ async def create_agent():
     # Note: Ensure GOOGLE_API_KEY is set in your environment
     doctor_agent = LlmAgent(
         name="DoctorFinderAgent",
-        model="gemini-1.5-flash",
+        model="gemini-3.5-flash",
         instruction=""" You are a specialized Medical Directory Assistant. 
         Your goal is to help users find doctors based on their location (State and City).
         Use the 'list_doctors' tool to fetch accurate information.
@@ -39,9 +39,9 @@ async def create_agent():
 
 # For A2A deployment, we wrap the agent in an A2A-compliant FastAPI app
 doctor_agent = asyncio.run(create_agent())
-app = to_a2a(doctor_agent)
+app = to_a2a(doctor_agent, port=8082)
 
 if __name__ == "__main__":
     # Start the A2A Agent server on port 8082
-    print("Starting A2A Agent on http://localhost:8082")
+    print("Starting A2A Agent on http://0.0.0.0:8082")
     uvicorn.run(app, host="0.0.0.0", port=8082)

@@ -19,7 +19,7 @@ COPY doctors.json .
 ENV PYTHONUNBUFFERED=1
 
 # Expose the port the server will run on
-EXPOSE 8001
+EXPOSE 8081
 
 # Run the server when the container launches
 ENTRYPOINT ["python", "server.py"]

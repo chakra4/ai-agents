@@ -42,5 +42,5 @@ def list_doctors(state: str = None, city: str = None) -> list:
     return filtered
 
 if __name__ == "__main__":
-    # Run as an HTTP (Streamable HTTP) server on port 8001
-    mcp.run(transport="http", port=8001, host="0.0.0.0")
+    # Run as an HTTP (Streamable HTTP) server on port 8081
+    mcp.run(transport="http", port=8081, host="0.0.0.0")
